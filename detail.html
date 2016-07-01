@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="uberfuli">
+<head>
+<title>Uber Fuli</title>
+<!-- for-mobile-apps -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Uber, Fuli, Uber Fuli" />
+<meta name="author" content="Hongyang Wang, http://mr-why.com">
+<!-- css -->
+<link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="./css/style.css" />
+<!-- js -->
+<script type="text/javascript" src="./js/angular.min.js"></script>
+</head>
+<body>
+	<div class="main detail" ng-controller="FuliController as fc">
+		<h2>商品详情</h2>
+		<a class="back-button" href="./index.html">< 返回</a>
+
+		<div class="list-group">
+			<div class="list-group-item" ng-repeat="fuli in fc.fulis"  ng-if="fc.getSession('whichItem')==fuli.id">
+				<!-- Product Info Part  -->
+				<img class="img detail-big-img" ng-src="{{fuli.bigPic}}" />
+				<div class="title-part"></div>
+				<div class="get-part"></div>
+				<div class="intro-part">
+					
+				</div>
+				<div class="attention-part">
+					<h3>注意事项</h3>
+					<p>{{fuli.attention}}</p>
+				</div>
+			</div>
+
+		</div>
+
+		<fuli-footer></fuli-footer>
+	</div>
+
+	<!-- js for app -->
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/module.js"></script>
+</body>
+</html>
